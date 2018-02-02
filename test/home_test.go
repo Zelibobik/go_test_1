@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-	"awesomeProject/handlers"
+	"github.com/zelibobik/go_test_1/handlers"
 )
 
 func TestHome(t *testing.T) {

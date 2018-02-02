@@ -3,8 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
-
-	"awesomeProject/handlers"
+	"github.com/zelibobik/go_test_1/handlers"
 )
 
 // How to try it: go run main.go

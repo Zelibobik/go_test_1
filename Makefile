@@ -7,13 +7,13 @@ VET_REPORT = vet.report
 TEST_REPORT = tests.xml
 GOARCH = amd64
 
-VERSION?=?
+VERSION?=0.0.1
 COMMIT=$(shell git rev-parse HEAD)
 BRANCH=$(shell git rev-parse --abbrev-ref HEAD)
 
 # Symlink into GOPATH
 GITHUB_USERNAME=zelibobik
-BUILD_DIR=${GOPATH}/src/github.com/${GITHUB_USERNAME}/${CURRENT_DIR}/build/${BINARY}
+BUILD_DIR=${GOPATH}/src/github.com/${GITHUB_USERNAME}/${BINARY}
 CURRENT_DIR=$(shell pwd)
 BUILD_DIR_LINK=$(shell readlink ${BUILD_DIR})
 
@@ -40,7 +40,7 @@ linux:
 
 darwin:
 	cd ${BUILD_DIR}; \
-	GOOS=darwin GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY}-darwin-${GOARCH} . ; \
+	GOOS=darwin GOARCH=${GOARCH} go build ${LDFLAGS} -o build/${BINARY}-darwin-${GOARCH}-${VERSION} . ; \
 	cd - >/dev/null
 
 windows:
@@ -68,5 +68,6 @@ clean:
 	-rm -f ${TEST_REPORT}
 	-rm -f ${VET_REPORT}
 	-rm -f ${BINARY}-*
+	-rm -rf build
 
 .PHONY: link linux darwin windows test vet fmt clean

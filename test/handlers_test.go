@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"testing"
 	"net/http/httptest"
-	"awesomeProject/handlers"
+	"github.com/zelibobik/go_test_1/handlers"
 )
 
 func TestRouter(t *testing.T) {
